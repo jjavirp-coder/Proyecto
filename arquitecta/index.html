@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Clara Montes, arquitecta</title>
-<meta name="description" content="Estudio de arquitectura de Clara Montes. Vivienda, rehabilitación y pequeños equipamientos.">
+<title>Elena Guevara Flores, arquitecta</title>
+<meta name="description" content="Estudio de arquitectura de Elena Guevara Flores. Vivienda, rehabilitación y pequeños equipamientos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ---------- Tokens ---------- */
 :root{
@@ -21,7 +21,7 @@
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
 body{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-family:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
   background:var(--hormigon);color:var(--tinta);
   font-size:1.0625rem;line-height:1.5;
   -webkit-font-smoothing:antialiased;
@@ -39,7 +39,8 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
   font-weight:500;
 }
 .cabecera a{text-decoration:none}
-.cabecera nav{display:flex;gap:1.5rem}
+.cabecera nav{display:flex;gap:1.1rem}
+.cabecera{font-size:.95rem}
 
 /* ---------- Portada: el alzado se dibuja al bajar ---------- */
 .portada{height:380vh;--p:0;--q:0}
@@ -51,23 +52,22 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
   color:color-mix(in srgb,var(--tinta) calc(var(--q)*100%),var(--cal));
 }
 .portada h1{
-  font-size:clamp(3.2rem,19vw,9.5rem);line-height:.86;font-weight:800;
-  letter-spacing:-.02em;
-  font-variation-settings:"wdth" calc(62 + 63*var(--p));
+  font-size:clamp(2.8rem,15.5vw,7rem);line-height:.86;font-weight:800;
+  letter-spacing:-.03em;
 }
 .portada__oficio{
   font-size:clamp(1.1rem,2.4vw,1.6rem);font-weight:400;margin-top:.9rem;max-width:22ch;
 }
 .alzado{
-  width:100%;max-height:52vh;display:block;
-  transform-origin:38% 100%;
-  transform:scale(calc(1.9 - .9*var(--p)));
+  width:100%;flex:1 1 auto;min-height:0;max-height:46vh;display:block;
+  transform-origin:50% 100%;
+  transform:scale(calc(1.3 - .3*var(--p)));
 }
 .alzado .linea{
   fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:square;
   vector-effect:non-scaling-stroke;
   stroke-dasharray:1;
-  stroke-dashoffset:clamp(0,calc(1 - (var(--p)*4.25 - var(--i)*.25)),1);
+  stroke-dashoffset:clamp(0,calc(1 - (var(--p)*3.2 + 1.3 - var(--i)*.25)),1);
 }
 .alzado .fina{stroke-width:1}
 .alzado .masa{opacity:var(--q)}
@@ -81,10 +81,25 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
 .manifiesto p{
   font-size:clamp(1.9rem,5.6vw,4.6rem);line-height:1.08;font-weight:600;
   letter-spacing:-.015em;max-width:20ch;
-  font-variation-settings:"wdth" 88;
 }
 .manifiesto .pal{opacity:.14;transition:opacity .25s linear}
 .manifiesto .pal.on{opacity:1}
+
+
+/* ---------- Luz: una ventana que crece hasta ocupar la pantalla ---------- */
+.luz{height:260vh;--r:0}
+.luz__fija{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;place-items:center}
+.luz__marco{
+  position:absolute;inset:0;
+  clip-path:inset(calc((1 - var(--r))*30%) calc((1 - var(--r))*20%) round calc((1 - var(--r))*18px));
+}
+.luz__marco svg{width:100%;height:100%;display:block;transform:scale(calc(1.35 - .35*var(--r)))}
+.luz__texto{
+  position:relative;color:var(--cal);text-align:center;padding:0 var(--margen);
+  font-size:clamp(2.2rem,8vw,6rem);line-height:.95;font-weight:800;letter-spacing:-.02em;
+  opacity:calc((var(--r) - .6)*3.3);
+  transform:translateY(calc((1 - var(--r))*40px));
+}
 
 /* ---------- Obras: avance horizontal con el scroll ---------- */
 .obras{background:var(--plano);color:var(--cal)}
@@ -94,7 +109,7 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
 }
 .obras h2{
   padding:0 var(--margen);
-  font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;font-variation-settings:"wdth" 110;
+  font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;
 }
 .obras__carril{
   display:flex;gap:clamp(1rem,3vw,2.5rem);padding:0 var(--margen);
@@ -112,8 +127,7 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
 /* ---------- Proceso ---------- */
 .proceso{padding:18vh var(--margen)}
 .proceso h2,.contacto h2{
-  font-size:clamp(2.2rem,7vw,5rem);line-height:.95;font-weight:800;letter-spacing:-.02em;
-  font-variation-settings:"wdth" 80;margin-bottom:3rem;max-width:14ch;
+  font-size:clamp(2.2rem,7vw,5rem);line-height:.95;font-weight:800;letter-spacing:-.02em;margin-bottom:3rem;max-width:14ch;
 }
 .proceso ol{list-style:none;padding:0;counter-reset:paso;max-width:60rem}
 .proceso li{
@@ -144,6 +158,8 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
   .portada{height:auto;--p:1;--q:1}
   .portada__fija{position:static}
   .manifiesto .pal{opacity:1}
+  .luz{height:auto;--r:1}
+  .luz__fija{position:relative}
   .obras__fija{position:static;height:auto;padding:5rem 0}
   .obras__carril{width:auto;overflow-x:auto;padding-bottom:1rem}
   .obras__barra{display:none}
@@ -153,7 +169,7 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
 <body>
 
 <header class="cabecera">
-  <a href="#inicio">Clara Montes</a>
+  <a href="#inicio">Elena Guevara Flores</a>
   <nav>
     <a href="#obras">Obras</a>
     <a href="#contacto">Contacto</a>
@@ -165,7 +181,7 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
 <section class="portada" id="inicio">
   <div class="portada__fija">
     <div>
-      <h1>Clara<br>Montes</h1>
+      <h1>Elena<br>Guevara<br>Flores</h1>
       <p class="portada__oficio">Arquitecta. Casas, rehabilitación y pequeños equipamientos.</p>
     </div>
 
@@ -205,6 +221,25 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
 <!-- MANIFIESTO -->
 <section class="manifiesto" aria-label="Forma de trabajar">
   <p data-palabras>Proyecto casas que se entienden desde la calle y se disfrutan desde dentro. Pocas piezas, buena luz y materiales que envejecen bien.</p>
+</section>
+
+<!-- LUZ -->
+<section class="luz" aria-label="La luz decide la planta">
+  <div class="luz__fija">
+    <div class="luz__marco">
+      <svg viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="800" height="800" fill="#16202e"/>
+        <rect y="560" width="800" height="240" fill="#232f42"/>
+        <rect x="250" y="130" width="300" height="430" fill="#2140c4"/>
+        <circle cx="470" cy="230" r="46" fill="#fff"/>
+        <path d="M250 430 L330 390 L420 440 L550 380 V560 H250Z" fill="#16202e" opacity=".55"/>
+        <path d="M398 130 V560 M250 345 H550" stroke="#16202e" stroke-width="8"/>
+        <path d="M250 560 H550 L700 800 H60Z" fill="#e4e6e3" opacity=".28"/>
+        <path d="M610 560 V470 H680 V560 M600 510 H690" stroke="#b9bdb6" stroke-width="8" fill="none"/>
+      </svg>
+    </div>
+    <p class="luz__texto">La luz decide<br>la planta</p>
+  </div>
 </section>
 
 <!-- OBRAS -->
@@ -283,13 +318,13 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
 <!-- CONTACTO -->
 <section class="contacto" id="contacto">
   <h2>Cuéntame tu proyecto</h2>
-  <a class="contacto__correo" href="mailto:hola@claramontes.es">hola@claramontes.es</a>
+  <a class="contacto__correo" href="mailto:hola@elenaguevaraflores.es">hola@elenaguevaraflores.es</a>
   <dl>
     <div><dt>Teléfono</dt><dd><a href="tel:+34600000000">600 000 000</a></dd></div>
     <div><dt>Estudio</dt><dd>Calle del Ejemplo 12, bajo</dd></div>
-    <div><dt>Instagram</dt><dd><a href="#">@claramontes.arq</a></dd></div>
+    <div><dt>Instagram</dt><dd><a href="#">@elenaguevaraflores.arq</a></dd></div>
   </dl>
-  <small>© 2026 Clara Montes, arquitecta colegiada</small>
+  <small>© 2026 Elena Guevara Flores, arquitecta colegiada</small>
 </section>
 </main>
 
@@ -299,6 +334,7 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
   if (reducido) return;
 
   var portada = document.querySelector('.portada');
+  var luz = document.querySelector('.luz');
   var obras = document.querySelector('.obras');
   var carril = document.querySelector('.obras__carril');
   var barra = document.querySelector('.obras__barra i');
@@ -336,6 +372,9 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
     var m = limitar((innerHeight * 0.85 - r.top) / (r.height + innerHeight * 0.35));
     var hasta = Math.round(m * palabras.length);
     for (var i = 0; i < palabras.length; i++) palabras[i].classList.toggle('on', i < hasta);
+
+    // Luz
+    luz.style.setProperty('--r', progreso(luz).toFixed(4));
 
     // Obras
     var o = progreso(obras);
