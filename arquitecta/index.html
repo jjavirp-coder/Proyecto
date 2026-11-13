@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Elena Guevara Flores, arquitecta</title>
-<meta name="description" content="Estudio de arquitectura de Elena Guevara Flores. Vivienda, rehabilitación y pequeños equipamientos.">
+<meta name="description" content="Estudio de arquitectura de Elena Guevara Flores. Viviendas unifamiliares y plurifamiliares, reformas, certificados energéticos y licitaciones.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ---------- Tokens ---------- */
 :root{
-  --plano:#2140c4;      /* azul cianotipo: el color de la marca */
-  --hormigon:#e4e6e3;   /* fondo claro */
-  --tinta:#16202e;      /* texto */
-  --cal:#ffffff;
-  --piedra:#b9bdb6;     /* gris medio para rellenos */
+  --plano:#8a6a48;      /* tostado: acento */
+  --hormigon:#f3ece0;   /* lino: fondo claro */
+  --tinta:#2e261f;      /* marrón oscuro: texto */
+  --cal:#fffaf2;
+  --piedra:#cdb898;     /* beige kraft */
   --margen:clamp(1.25rem,5vw,4.5rem);
 }
 *{box-sizing:border-box;margin:0}
@@ -34,7 +34,7 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
   position:fixed;inset:0 0 auto 0;z-index:10;
   display:flex;justify-content:space-between;align-items:center;
   padding:.8rem var(--margen);
-  background:rgba(228,230,227,.78);
+  background:rgba(243,236,224,.82);
   -webkit-backdrop-filter:saturate(1.6) blur(14px);backdrop-filter:saturate(1.6) blur(14px);
   font-weight:500;
 }
@@ -48,15 +48,15 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
   position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
   display:flex;flex-direction:column;justify-content:space-between;
   padding:4.5rem var(--margen) 1.5rem;
-  background:color-mix(in srgb,var(--hormigon) calc(var(--q)*100%),var(--plano));
-  color:color-mix(in srgb,var(--tinta) calc(var(--q)*100%),var(--cal));
+  background:color-mix(in srgb,var(--hormigon) calc(var(--q)*100%),var(--piedra));
+  color:var(--tinta);
 }
 .portada h1{
   font-size:clamp(2.8rem,15.5vw,7rem);line-height:.86;font-weight:800;
   letter-spacing:-.03em;
 }
 .portada__oficio{
-  font-size:clamp(1.1rem,2.4vw,1.6rem);font-weight:400;margin-top:.9rem;max-width:22ch;
+  font-size:clamp(1.1rem,2.4vw,1.6rem);font-weight:400;margin-top:.9rem;max-width:26ch;
 }
 .alzado{
   width:100%;flex:1 1 auto;min-height:0;max-height:46vh;display:block;
@@ -77,7 +77,7 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
 .portada__pie span:first-child{opacity:calc(1 - var(--p)*6)}
 
 /* ---------- Manifiesto: las palabras se encienden ---------- */
-.manifiesto{padding:22vh var(--margen)}
+.manifiesto{padding:22vh var(--margen) 14vh}
 .manifiesto p{
   font-size:clamp(1.9rem,5.6vw,4.6rem);line-height:1.08;font-weight:600;
   letter-spacing:-.015em;max-width:20ch;
@@ -85,6 +85,21 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
 .manifiesto .pal{opacity:.14;transition:opacity .25s linear}
 .manifiesto .pal.on{opacity:1}
 
+
+/* ---------- Servicios: cada fila se enciende al pasar por el centro ---------- */
+.servicios{padding:6vh var(--margen) 20vh}
+.servicios h2{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;margin-bottom:2rem}
+.servicios ul{list-style:none;padding:0;max-width:70rem}
+.servicios li{
+  padding:1.3rem 0;border-top:1px solid var(--tinta);
+  display:grid;gap:.3rem 2rem;grid-template-columns:1fr;
+  opacity:.28;transition:opacity .35s ease;
+}
+.servicios li.on{opacity:1}
+.servicios li:last-child{border-bottom:1px solid var(--tinta)}
+.servicios h3{font-size:clamp(1.6rem,5.2vw,3.4rem);line-height:1.05;font-weight:700;letter-spacing:-.02em}
+.servicios p{max-width:46ch}
+@media (min-width:800px){.servicios li{grid-template-columns:1.2fr 1fr;align-items:end}}
 
 /* ---------- Luz: una ventana que crece hasta ocupar la pantalla ---------- */
 .luz{height:260vh;--r:0}
@@ -102,7 +117,7 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
 }
 
 /* ---------- Obras: avance horizontal con el scroll ---------- */
-.obras{background:var(--plano);color:var(--cal)}
+.obras{background:var(--piedra);color:var(--tinta)}
 .obras__fija{
   position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
   display:flex;flex-direction:column;justify-content:center;gap:1.5rem;
@@ -120,9 +135,9 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
   display:block;width:100%;aspect-ratio:4/3;background:var(--hormigon);
 }
 .obra h3{font-size:1.5rem;font-weight:700;margin-top:.9rem;line-height:1.15}
-.obra p{opacity:.8}
-.obras__barra{margin:0 var(--margen);height:2px;background:rgba(255,255,255,.25)}
-.obras__barra i{display:block;height:100%;background:var(--cal);transform-origin:0 50%;transform:scaleX(0)}
+.obra p{opacity:.85}
+.obras__barra{margin:0 var(--margen);height:2px;background:rgba(46,38,31,.2)}
+.obras__barra i{display:block;height:100%;background:var(--tinta);transform-origin:0 50%;transform:scaleX(0)}
 
 /* ---------- Proceso ---------- */
 .proceso{padding:18vh var(--margen)}
@@ -158,6 +173,7 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
   .portada{height:auto;--p:1;--q:1}
   .portada__fija{position:static}
   .manifiesto .pal{opacity:1}
+  .servicios li{opacity:1}
   .luz{height:auto;--r:1}
   .luz__fija{position:relative}
   .obras__fija{position:static;height:auto;padding:5rem 0}
@@ -171,7 +187,7 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
 <header class="cabecera">
   <a href="#inicio">Elena Guevara Flores</a>
   <nav>
-    <a href="#obras">Obras</a>
+    <a href="#servicios">Servicios</a>
     <a href="#contacto">Contacto</a>
   </nav>
 </header>
@@ -182,18 +198,18 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
   <div class="portada__fija">
     <div>
       <h1>Elena<br>Guevara<br>Flores</h1>
-      <p class="portada__oficio">Arquitecta. Casas, rehabilitación y pequeños equipamientos.</p>
+      <p class="portada__oficio">Arquitecta. Vivienda, reformas, certificados energéticos y licitaciones.</p>
     </div>
 
     <svg class="alzado" viewBox="220 90 960 460" role="img" aria-label="Alzado de una casa que se dibuja línea a línea">
       <!-- masas: aparecen al final, cuando el plano se convierte en edificio -->
       <g class="masa">
         <rect x="380" y="250" width="440" height="220" fill="#fff"/>
-        <rect x="320" y="160" width="420" height="90" fill="#b9bdb6"/>
-        <rect x="820" y="110" width="120" height="360" fill="#2140c4"/>
-        <rect x="420" y="300" width="220" height="170" fill="#16202e"/>
-        <rect x="360" y="190" width="340" height="35" fill="#16202e"/>
-        <rect x="700" y="360" width="70" height="110" fill="#2140c4"/>
+        <rect x="320" y="160" width="420" height="90" fill="#cdb898"/>
+        <rect x="820" y="110" width="120" height="360" fill="#a8845c"/>
+        <rect x="420" y="300" width="220" height="170" fill="#2e261f"/>
+        <rect x="360" y="190" width="340" height="35" fill="#2e261f"/>
+        <rect x="700" y="360" width="70" height="110" fill="#a8845c"/>
       </g>
       <path class="linea" style="--i:0" pathLength="1" d="M220 500 L300 470 H1180"/>
       <path class="linea" style="--i:1" pathLength="1" d="M380 470 V250 H820 V470"/>
@@ -220,7 +236,19 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
 
 <!-- MANIFIESTO -->
 <section class="manifiesto" aria-label="Forma de trabajar">
-  <p data-palabras>Proyecto casas que se entienden desde la calle y se disfrutan desde dentro. Pocas piezas, buena luz y materiales que envejecen bien.</p>
+  <p data-palabras>Proyecto viviendas que se entienden desde la calle y se disfrutan desde dentro. Pocas piezas, buena luz y materiales que envejecen bien.</p>
+</section>
+
+<!-- SERVICIOS -->
+<section class="servicios" id="servicios">
+  <h2>Qué hago</h2>
+  <ul>
+    <li><h3>Viviendas unifamiliares</h3><p>Proyecto y dirección de obra de casas nuevas, desde el solar hasta las llaves.</p></li>
+    <li><h3>Edificios plurifamiliares</h3><p>Bloques de viviendas para promotores, cooperativas y comunidades.</p></li>
+    <li><h3>Reformas</h3><p>Reformas integrales y parciales de viviendas, locales y edificios.</p></li>
+    <li><h3>Certificados energéticos</h3><p>Certificado de eficiencia energética para vender, alquilar o pedir ayudas.</p></li>
+    <li><h3>Licitaciones</h3><p>Preparación de ofertas y documentación técnica para concursos públicos.</p></li>
+  </ul>
 </section>
 
 <!-- LUZ -->
@@ -228,14 +256,14 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
   <div class="luz__fija">
     <div class="luz__marco">
       <svg viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <rect width="800" height="800" fill="#16202e"/>
-        <rect y="560" width="800" height="240" fill="#232f42"/>
-        <rect x="250" y="130" width="300" height="430" fill="#2140c4"/>
+        <rect width="800" height="800" fill="#2e261f"/>
+        <rect y="560" width="800" height="240" fill="#4a3d31"/>
+        <rect x="250" y="130" width="300" height="430" fill="#a8845c"/>
         <circle cx="470" cy="230" r="46" fill="#fff"/>
-        <path d="M250 430 L330 390 L420 440 L550 380 V560 H250Z" fill="#16202e" opacity=".55"/>
-        <path d="M398 130 V560 M250 345 H550" stroke="#16202e" stroke-width="8"/>
-        <path d="M250 560 H550 L700 800 H60Z" fill="#e4e6e3" opacity=".28"/>
-        <path d="M610 560 V470 H680 V560 M600 510 H690" stroke="#b9bdb6" stroke-width="8" fill="none"/>
+        <path d="M250 430 L330 390 L420 440 L550 380 V560 H250Z" fill="#2e261f" opacity=".55"/>
+        <path d="M398 130 V560 M250 345 H550" stroke="#2e261f" stroke-width="8"/>
+        <path d="M250 560 H550 L700 800 H60Z" fill="#f3ece0" opacity=".28"/>
+        <path d="M610 560 V470 H680 V560 M600 510 H690" stroke="#cdb898" stroke-width="8" fill="none"/>
       </svg>
     </div>
     <p class="luz__texto">La luz decide<br>la planta</p>
@@ -250,13 +278,13 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
 
       <article class="obra">
         <svg viewBox="0 0 400 300" aria-hidden="true">
-          <rect width="400" height="300" fill="#e4e6e3"/>
-          <path d="M0 230 L400 170 V300 H0Z" fill="#b9bdb6"/>
+          <rect width="400" height="300" fill="#f3ece0"/>
+          <path d="M0 230 L400 170 V300 H0Z" fill="#cdb898"/>
           <rect x="90" y="120" width="230" height="70" fill="#fff"/>
-          <rect x="60" y="110" width="290" height="12" fill="#16202e"/>
-          <rect x="120" y="140" width="120" height="50" fill="#2140c4"/>
-          <rect x="150" y="190" width="14" height="32" fill="#16202e"/>
-          <rect x="280" y="190" width="14" height="14" fill="#16202e"/>
+          <rect x="60" y="110" width="290" height="12" fill="#2e261f"/>
+          <rect x="120" y="140" width="120" height="50" fill="#a8845c"/>
+          <rect x="150" y="190" width="14" height="32" fill="#2e261f"/>
+          <rect x="280" y="190" width="14" height="14" fill="#2e261f"/>
         </svg>
         <h3>Casa en la ladera</h3>
         <p>Vivienda unifamiliar, Teruel, 2025</p>
@@ -265,12 +293,12 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
       <article class="obra">
         <svg viewBox="0 0 400 300" aria-hidden="true">
           <rect width="400" height="300" fill="#fff"/>
-          <rect x="40" y="60" width="320" height="240" fill="#e4e6e3"/>
-          <rect x="130" y="130" width="140" height="170" fill="#2140c4"/>
-          <path d="M130 130 a70 70 0 0 1 140 0Z" fill="#2140c4"/>
-          <rect x="60" y="90" width="40" height="60" fill="#16202e"/>
-          <rect x="300" y="90" width="40" height="60" fill="#16202e"/>
-          <circle cx="200" cy="230" r="26" fill="#b9bdb6"/>
+          <rect x="40" y="60" width="320" height="240" fill="#f3ece0"/>
+          <rect x="130" y="130" width="140" height="170" fill="#a8845c"/>
+          <path d="M130 130 a70 70 0 0 1 140 0Z" fill="#a8845c"/>
+          <rect x="60" y="90" width="40" height="60" fill="#2e261f"/>
+          <rect x="300" y="90" width="40" height="60" fill="#2e261f"/>
+          <circle cx="200" cy="230" r="26" fill="#cdb898"/>
         </svg>
         <h3>Patio de cal</h3>
         <p>Rehabilitación de casa de pueblo, Cádiz, 2024</p>
@@ -278,10 +306,10 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
 
       <article class="obra">
         <svg viewBox="0 0 400 300" aria-hidden="true">
-          <rect width="400" height="300" fill="#b9bdb6"/>
-          <rect x="0" y="240" width="400" height="60" fill="#16202e"/>
+          <rect width="400" height="300" fill="#cdb898"/>
+          <rect x="0" y="240" width="400" height="60" fill="#2e261f"/>
           <path d="M50 240 V110 L140 70 L230 110 L320 70 L350 84 V240Z" fill="#fff"/>
-          <g fill="#2140c4"><rect x="80" y="140" width="24" height="100"/><rect x="128" y="140" width="24" height="100"/><rect x="176" y="140" width="24" height="100"/><rect x="224" y="140" width="24" height="100"/><rect x="272" y="140" width="24" height="100"/></g>
+          <g fill="#a8845c"><rect x="80" y="140" width="24" height="100"/><rect x="128" y="140" width="24" height="100"/><rect x="176" y="140" width="24" height="100"/><rect x="224" y="140" width="24" height="100"/><rect x="272" y="140" width="24" height="100"/></g>
         </svg>
         <h3>Biblioteca del barrio</h3>
         <p>Equipamiento público, Mallorca, 2023</p>
@@ -289,11 +317,11 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
 
       <article class="obra">
         <svg viewBox="0 0 400 300" aria-hidden="true">
-          <rect width="400" height="300" fill="#2140c4" opacity=".12"/>
+          <rect width="400" height="300" fill="#a8845c" opacity=".12"/>
           <rect x="150" y="30" width="110" height="270" fill="#fff"/>
-          <rect x="40" y="120" width="110" height="180" fill="#b9bdb6"/>
-          <rect x="260" y="90" width="100" height="210" fill="#16202e"/>
-          <g fill="#2140c4"><rect x="166" y="50" width="78" height="26"/><rect x="166" y="96" width="78" height="26"/><rect x="166" y="142" width="78" height="26"/><rect x="166" y="188" width="78" height="26"/><rect x="166" y="234" width="78" height="26"/></g>
+          <rect x="40" y="120" width="110" height="180" fill="#cdb898"/>
+          <rect x="260" y="90" width="100" height="210" fill="#2e261f"/>
+          <g fill="#a8845c"><rect x="166" y="50" width="78" height="26"/><rect x="166" y="96" width="78" height="26"/><rect x="166" y="142" width="78" height="26"/><rect x="166" y="188" width="78" height="26"/><rect x="166" y="234" width="78" height="26"/></g>
         </svg>
         <h3>Ático entre medianeras</h3>
         <p>Reforma integral, Madrid, 2023</p>
@@ -334,6 +362,7 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
   if (reducido) return;
 
   var portada = document.querySelector('.portada');
+  var filas = document.querySelectorAll('.servicios li');
   var luz = document.querySelector('.luz');
   var obras = document.querySelector('.obras');
   var carril = document.querySelector('.obras__carril');
@@ -372,6 +401,12 @@ a:focus-visible{outline:3px solid currentColor;outline-offset:4px}
     var m = limitar((innerHeight * 0.85 - r.top) / (r.height + innerHeight * 0.35));
     var hasta = Math.round(m * palabras.length);
     for (var i = 0; i < palabras.length; i++) palabras[i].classList.toggle('on', i < hasta);
+
+    // Servicios: encendida la fila que cruza la franja central
+    for (var j = 0; j < filas.length; j++){
+      var f = filas[j].getBoundingClientRect();
+      filas[j].classList.toggle('on', f.top < innerHeight * 0.62 && f.bottom > innerHeight * 0.3);
+    }
 
     // Luz
     luz.style.setProperty('--r', progreso(luz).toFixed(4));
